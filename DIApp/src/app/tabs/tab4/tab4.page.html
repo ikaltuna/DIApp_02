@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>tab4</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">tab4</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <app-header-tab titulo="tab4"></app-header-tab>
+  <ion-label>Adivina un número del 0 al 100</ion-label>
+  <ion-button disabled={{desactivado}} (click)="onClick()">Comprobar</ion-button>
+
+  <ion-item>
+    <ion-label>Número: </ion-label>
+    <ion-input type="number" placeholder="Introduzca un número" [(ngModel)]="numero" (ionChange)="comprobarDato();"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label *ngIf="!acierto" color="danger">{{mensaje}}</ion-label>
+    <ion-label *ngIf="acierto" color="success">{{mensaje}}</ion-label>
+    <ion-badge color="primary" mode="ios">{{intentos}}</ion-badge>
+  </ion-item>
+  <ion-button id="volverAJugar" disabled={{volver}} (click)="volverJugar()">¿Quieres volver a jugar?</ion-button>
+</ion-content>
